@@ -33,7 +33,7 @@ services:
       - "HUB_IP_ADDRESS=192.168.1.2"
 ```
 
-Fill in the IP address of your Harmony Hub (must be reachable by the Docker container), and add a username and password which will be required when sending commands to the Harmony Hub.
+Fill in the IP address of your Harmony Hub, and add a username and password which will be required when sending commands to the Harmony Hub.
 
 ## Endpoints
 
