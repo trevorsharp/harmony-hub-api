@@ -13,7 +13,7 @@ To run this application using Docker:
 1. Create the `docker-compose.yml` file as described below
 2. Run `docker-compose up -d` in the folder where your `docker-compose.yml` lives
 3. Check the logs using `docker-compose logs -f` to see if there are any errors in your configuration
-4. Go to `http://localhost:PORT/status` (where PORT is the port number configured in the `docker-compose.yml` file) to check that the API is up ad running
+4. Go to `http://localhost:3000/status` to check that the API is up and running
 
 ### docker-compose.yml
 
@@ -32,11 +32,9 @@ services:
       - "HUB_IP_ADDRESS=192.168.1.2"
 ```
 
-Fill in a username and password which will be used for HTTP Basic Auth when sending POST requests to the API. Also, add in the IP address of the harmony hub that you would like to control.
+Fill in the IP address of your Harmony Hub (must be reachable by the Docker container), and add a username and password which will be required when sending commands to the Harmony Hub.
 
 ## Endpoints
-
-This API exposes a few endpoints:
 
 #### GET /status
 
@@ -46,15 +44,15 @@ This API exposes a few endpoints:
 
 - Returns a JSON list of objects for all devices that are set up on the Harmony Hub
 
-#### GET /devices/_DEVICE_ID_
+#### GET /devices/{deviceId}
 
-- Returns a JSON object with data for the device with id equal to `_DEVICE_ID_`
+- Returns a JSON object with data for the device with id equal to `{deviceId}`
 
-#### GET /devices/_DEVICE_ID_/commands
+#### GET /devices/{deviceId}/commands
 
-- Returns a JSON list of commands for the device with id equal to `_DEVICE_ID_`
+- Returns a JSON list of commands for the device with id equal to `{deviceId}`
 
-#### POST /devices/_DEVICE_ID_/commands/_COMMAND_NAME_
+#### POST /devices/{deviceId}/commands/{commandName}
 
-- Returns a status code of 200 after successfully sending command with name `_COMMAND_NAME_` to device with id `_DEVICE_ID_` via Harmony Hub
-- This call requires the use of HTTP Basic Auth with the username and password configured in the `docker-compose.yml` file (See [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) for more information on HTTP Basic Authorization)
+- Returns `OK` after successfully sending the command (`{commandName}`) to device with id `{deviceId}` via Harmony Hub
+- Requires username and password via HTTP Basic Auth (See [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) for more information)
