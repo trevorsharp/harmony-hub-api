@@ -6,7 +6,8 @@ A simple REST API for controlling devices via a Harmony Hub
 
 Prerequisites:
 
-- Ensure docker is set up and running on your machine (https://docs.docker.com/get-docker)
+- Ensure Docker is set up and running on your machine (https://docs.docker.com/get-docker)
+- Harmony Hub set up with at least one device and network accessible from the machine running Docker
 
 To run this application using Docker:
 
