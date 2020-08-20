@@ -26,7 +26,7 @@ services:
     restart: always
     ports:
       - 3000:3000
-    enviroment:
+    environment:
       - "USERNAME=myusername"
       - "PASSWORD=mypassword"
       - "HUB_IP_ADDRESS=192.168.1.2"
@@ -40,12 +40,21 @@ This API exposes a few endpoints:
 
 #### GET /status
 
+- Returns `Connected to Harmony` when the API can comminucate with the Harmony Hub
+
 #### GET /devices
 
-#### GET /devices/DEVICE_ID
+- Returns a JSON list of objects for all devices that are set up on the Harmony Hub
 
-#### GET /devices/DEVICE_ID/commands
+#### GET /devices/_DEVICE_ID_
 
-#### POST /devices/DEVICE_ID/commands/COMMAND_NAME
+- Returns a JSON object with data for the device with id equal to `_DEVICE_ID_`
 
-This call requires the use of HTTP Basic Auth with the username and password configured in the `docker-compose.yml` file.
+#### GET /devices/_DEVICE_ID_/commands
+
+- Returns a JSON list of commands for the device with id equal to `_DEVICE_ID_`
+
+#### POST /devices/_DEVICE_ID_/commands/_COMMAND_NAME_
+
+- Returns a status code of 200 after successfully sending command with name `_COMMAND_NAME_` to device with id `_DEVICE_ID_` via Harmony Hub
+- This call requires the use of HTTP Basic Auth with the username and password configured in the `docker-compose.yml` file (See [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) for more information on HTTP Basic Authorization)
