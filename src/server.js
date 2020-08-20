@@ -5,8 +5,6 @@ var port = 3000;
 app.set('port', port);
 var server = http.createServer(app);
 server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
 
 const onError = (error) => {
   if (error.syscall !== 'listen') {
@@ -34,3 +32,6 @@ const onListening = () => {
   var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   console.log('Listening on ' + bind);
 };
+
+server.on('error', onError);
+server.on('listening', onListening);
