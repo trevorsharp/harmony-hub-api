@@ -1,0 +1,18 @@
+{
+  "name": "harmony-hub-api",
+  "version": "0.0.1",
+  "author": "Trevor Sharp <sharp.trevor@me.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "express": "~4.16.1",
+    "express-basic-auth": "^1.2.0",
+    "harmony-websocket": "^1.5.0"
+  },
+  "scripts": {
+    "start": "node ./src/server.js"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  }
+}
