@@ -9,6 +9,9 @@
     "express-basic-auth": "1.2.1",
     "harmony-websocket": "1.5.5"
   },
+  "resolutions": {
+    "ws": "7.5.11"
+  },
   "scripts": {
     "start": "node ./src/server.js"
   },
